@@ -26,7 +26,7 @@
 &kp BSPC &kp P &kp O &kp I &kp U &kp Y		&kp T &kp  R  &kp  E  &kp  W  &kp  Q  &kp  TAB
 &kp SQT &kp SEMI &kp L &kp K &kp J &kp H	&kp G &kp  F  &kp  D  &kp  S  &kp  A  &kp  LCTRL
 &kp ESC &kp FSLH &kp DOT &kp COMMA &kp M &kp N  &kp B &kp  V  &kp  C  &kp  X  &kp  Z  &kp  LSHFT
-&kp RALT &kp RET &mo 2				&kp SPACE &kp LGUI &mo 1
+&kp RALT &mo 2 &kp RET 				&kp SPACE &mo 1 &kp LGUI
                         >;
                 };
                 lower_layer {
