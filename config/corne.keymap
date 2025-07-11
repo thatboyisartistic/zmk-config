@@ -4,6 +4,27 @@
  * SPDX-License-Identifier: MIT
  */
 
+//Box Making Characters 
+//┌ ┬ ┐ 
+
+//├ ┼ ┤ │  ─ 
+
+//└ ┴ ┘
+
+//Layer Defines
+#define DEFAULT 0
+#define NAV     1
+#define MISC    2
+#define SPECIAL 3
+#define MEDIA   4
+
+//Mouse Abreviation Defines
+#define MVLFT MOVE_LEFT
+#define MVDWN MOVE_DOWN
+#define MVUP  MOVE_UP
+#define MVRGT MOVE_RIGHT
+
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -13,13 +34,6 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 700  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
-
-//Box Making Characters 
-//┌ ┬ ┐ 
-
-//├ ┼ ┤ │  ─ 
-
-//└ ┴ ┘
 
 
 / {
@@ -38,22 +52,37 @@
 // │  SHFT     │  Z       │  X       │  C       │  V       │  B       │            │   N      │  M       │  ,       │  .       │  /       │ SHFT     │
      &kp LSHFT   &kp Z      &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
-//                                   │  GUI     │  LWR     │  ENT     │            │  SPC     │  RSE     │  ALT     │
-                                       &kp LGUI    &mo 1     &kp RET                 &kp SPACE   &mo 2     &kp RALT
+//                                   │  GUI     │  NAV     │  ENT     │            │  SPC     │  RSE     │  ALT     │
+                                       &kp LGUI   &mo NAV    &kp RET                 &kp SPACE   &mo 2     &kp RALT
 //                                   └──────────┴──────────┴──────────┘            └──────────┴──────────┴──────────┘
                         >;
                 };
                 lower_layer {
+                        bindings = <
+// ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+// │   ESC     │   1      │   2      │   3      │   4      │   5      │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
+     &kp TAB      &kp Q     &kp W       &kp E      &kp R      &kp T                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT  &trans     &trans
+// ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
+     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &to NAV
+// ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+// │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │          │
+     &kp LSHFT   wkp        &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+// └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
+//                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
+                                       &kp LGUI    &trans   &kp RET                 &mkp LCLK   &trans     &mkp RCLK
+//                                   └──────────┴──────────┴──────────┘            └──────────┴──────────┴──────────┘
+                        >;
 // ─────────────────────────────────────────────────────────────────────────────────────────
 // |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     | ESC  |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &trans     &trans       &trans       &trans       &trans       &trans         &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp ESC
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+// &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
+// &trans     &trans       &trans       &trans       &trans       &trans         &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp ESC
+// &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+//                                  &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
                         >;
                 };
 
