@@ -12,7 +12,7 @@
 //└ ┴ ┘
 
 //Layer Defines
-#define DEFAULT 0
+#define QWERTY  0
 #define NAV     1
 #define MISC    2
 #define SPECIAL 3
@@ -66,8 +66,8 @@
 // │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
      &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &to NAV
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │          │
-     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+// │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │ TO BASE  │
+     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans   &kp RET                 &mkp LCLK   &trans     &mkp RCLK
