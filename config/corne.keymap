@@ -67,7 +67,7 @@
      &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &to NAV
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │          │
-     &kp LSHFT   wkp        &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans   &kp RET                 &mkp LCLK   &trans     &mkp RCLK
