@@ -44,11 +44,6 @@
             tapping-term-ms = <200>;
             bindings = <&mo NAV>, <&mo MISC>;
         };
-    };
-
-
-/ {
-    behaviors {
         rtd0: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -58,7 +53,9 @@
     };
 
 
-/ {
+
+
+
         keymap {
                 compatible = "zmk,keymap";
 
