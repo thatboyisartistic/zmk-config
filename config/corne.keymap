@@ -38,15 +38,24 @@
 
 / {
     behaviors {
-        togon: toggle_layer_on_only {
-            compatible = "zmk,behavior-toggle-layer";
-            #binding-cells = <1>;
-            display-name = "Toggle Layer On";
-            toggle-mode = "on";
+        ltd0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo NAV>, <&mo MISC>;
         };
     };
-};
 
+
+/ {
+    behaviors {
+        rtd0: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo MISC>, <&mo NAV>;
+        };
+    };
 
 
 / {
@@ -65,8 +74,8 @@
 // │  SHFT     │  Z       │  X       │  C       │  V       │  B       │            │   N      │  M       │  ,       │  .       │  /       │ SHFT     │
      &kp LSHFT   &kp Z      &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
-//                                   │  GUI     │  NAV     │  ENT     │            │  SPC     │  RSE     │  ALT     │
-                                       &kp LGUI   &mo NAV    &kp RET                 &kp SPACE   &mo 2     &kp RALT
+//                                   │  GUI     │ L LYRCTL │  ENT     │            │  SPC     │ R LYRCTL │  ALT     │
+                                       &kp LGUI    &ltd0      &kp RET                &kp SPACE   &rtd0     &kp RALT
 //                                   └──────────┴──────────┴──────────┘            └──────────┴──────────┴──────────┘
                         >;
                 };
@@ -74,13 +83,13 @@
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │   ESC     │   1      │   2      │   3      │   4      │   5      │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-     &kp ESC      &kp Q     &kp W       &kp E      &kp R      &kp T                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT  &trans     &trans
+     &kp ESC      &kp Q     &kp W       &kp E      &kp R      &kp T                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
-     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK &togon NAV
+// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
+     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │ TO BASE  │
-     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &to QWERTY
+     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                   &none      &none       &none      &none      &none    &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans   &kp RET                 &mkp LCLK   &trans     &mkp RCLK
@@ -102,17 +111,17 @@
                 raise_layer {
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-// │   ESC     │   1      │   2      │   3      │   4      │   5      │            │  │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-     &kp ESC      &kp Q     &kp W       &kp E      &kp R      &kp T                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT  &trans     &trans
+// │   ESC     │   1      │   2      │   3      │   4      │   5      │            │  TAB     │    7     │     8    │     9    │          │          │
+     &kp ESC      &kp Q     &kp W       &kp E      &kp R      &kp T                  &kp TAB     &kp N7     &kp N8     &kp N9     &none      &trans
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
-     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &to NAV
+// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │          │    4     │     5    │     6    │          │          │
+     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                    &none      &kp N4     &kp N5     &kp L      &none      &none  
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │ TO BASE  │
-     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &to QWERTY
+// │  SHFT     │          │          │          │          │          │            │     ,    │    1     │     2    │     3    │          │ TO BASE  │
+     &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                  &kp COMMA    &kp N1     &kp N2     &kp N3     &none    &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
-//                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
-                                       &kp LGUI    &trans   &kp RET                 &mkp LCLK   &trans     &mkp RCLK
+//                                   │  GUI     │          │          │            │          │          │     0    │
+                                       &kp LGUI    &trans     &trans                  &trans     &trans     &kp N0   
 //                                   └──────────┴──────────┴──────────┘            └──────────┴──────────┴──────────┘
                         >;
 // ─────────────────────────────────────────────────────────────────────────────────────────
