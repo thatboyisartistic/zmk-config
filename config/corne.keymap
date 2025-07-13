@@ -64,7 +64,7 @@
      &kp ESC      &kp Q     &kp W       &kp E      &kp R      &kp T                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT  &trans     &trans
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
-     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &to NAV
+     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK  &tog NAV
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │  SHFT     │          │          │          │          │          │            │          │          │          │          │          │ TO BASE  │
      &kp LSHFT   &trans     &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH  &to QWERTY
