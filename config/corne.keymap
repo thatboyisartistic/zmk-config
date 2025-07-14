@@ -40,18 +40,6 @@
 #define MVUP  MOVE_UP
 #define MVRGT MOVE_RIGHT
 
-/ {
-    behaviors {
-        hbt: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&bt BT_SEL>, <&none>;
-            display-name = "hold-to-change";
-        };
-    };
-};
 
 //Bluetooth mod taps to prevent accidental profile changes
 //#define BTP0 "BT_SEL 0, &none"
@@ -73,6 +61,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mo SYMBOL>, <&mo NAV>, <&tog NAV>;
+        };
+        hbt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&bt BT_SEL>, <&none>;
+            display-name = "hold-to-change";
         };
     };
 
