@@ -40,11 +40,24 @@
 #define MVUP  MOVE_UP
 #define MVRGT MOVE_RIGHT
 
+/ {
+    behaviors {
+        hbt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&bt BT_SEL>, <&none>;
+            display-name = "hold-to-change";
+        };
+    };
+};
+
 //Bluetooth mod taps to prevent accidental profile changes
-#define BTP0 "BT_SEL 0, &none"
-#define BTP1 "BT_SEL 1, &none"
-#define BTP2 "BT_SEL 2, &none" 
-#define BTP3 "BT_SEL 3, &none"
+//#define BTP0 "BT_SEL 0, &none"
+//#define BTP1 "BT_SEL 1, &none"
+//#define BTP2 "BT_SEL 2, &none" 
+//#define BTP3 "BT_SEL 3, &none"
 
 
 / {
@@ -93,13 +106,13 @@
 //			             									***NAVIGATION***
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │           │          │          │          │          │          │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-     &trans       &none     &none       &none      &none      &none                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
+      &trans      &none      &none      &none      &none      &none                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │          │          │          │          │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
-     &trans       &none      &none      &none      &none     &none                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK   &none
+      &trans      &none      &none      &none      &none      &none                   &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │          │          │          │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-     &trans      &none      &none      &none      &none      &none                  &bt BT_CLR  &mt BTP0   &mt BTP1   &mt BTP2   &mt BTP3  &to QWERTY
+      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR  &hbt 0     &hbt 1     &hbt 2      &hbt 3   &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans    &kp RET                &mkp LCLK    &trans    &mkp RCLK
