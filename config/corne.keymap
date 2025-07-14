@@ -25,7 +25,7 @@
 //Layer Defines
 #define QWERTY  0
 #define NAV     1
-#define SYMBOL  2
+#define SYMB  2
 #define SPECIAL 3
 #define MEDIA   4
 
@@ -54,13 +54,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo NAV>, <&mo SYMBOL>, <&tog SYMBOL>;
+            bindings = <&mo NAV>, <&mo SYMB>, <&tog SYMB>;
         };
         rtd0: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo SYMBOL>, <&mo NAV>, <&tog NAV>;
+            bindings = <&mo SYMB>, <&mo NAV>, <&tog NAV>;
         };
 //      hbt: mod_tap {
 //          compatible = "zmk,behavior-hold-tap";
@@ -98,8 +98,6 @@
                 };
                 lower_layer {
                         bindings = <
-//		                                                 *****NAVIGATION LAYER******
-//			             									***NAVIGATION***
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │           │          │          │          │          │          │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
       &trans      &none      &none      &none      &none      &none                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
@@ -117,7 +115,6 @@
                 };
                 raise_layer {
                         bindings = <
-//			***SYMBOLS***									***NUMBERS***
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │           │   ` / ~  │   [      │   ]      │    |     │   = / +  │            │  TAB     │  7 / &   │  8 / *   │  9 / (   │          │          │
      &trans     &kp GRAVE   &kp RBKT   &kp LBKT   &kp R     &kp EQUAL               &kp TAB     &kp N7     &kp N8     &kp N9      &none      &trans
