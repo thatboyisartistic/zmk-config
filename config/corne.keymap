@@ -42,7 +42,7 @@
 
 
 //Bluetooth mod taps to prevent accidental profile changes
-//#define BTP0 "BT_SEL 0, &none"
+#define BTS BT_SEL
 //#define BTP1 "BT_SEL 1, &none"
 //#define BTP2 "BT_SEL 2, &none" 
 //#define BTP3 "BT_SEL 3, &none"
@@ -62,14 +62,14 @@
             tapping-term-ms = <200>;
             bindings = <&mo SYMBOL>, <&mo NAV>, <&tog NAV>;
         };
-        hbt: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&bt BT_SEL>, <&none>;
-            display-name = "hold-to-change";
-        };
+//      hbt: mod_tap {
+//          compatible = "zmk,behavior-hold-tap";
+//          #binding-cells = <1>;
+//          flavor = "hold-preferred";
+//          tapping-term-ms = <200>;
+//          bindings = <&bt BT_SEL>, <&none>;
+//          display-name = "hold-to-change";
+//      };
     };
 
 
@@ -108,7 +108,7 @@
       &trans      &none      &none      &none      &none      &none                   &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │          │          │          │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR  &hbt 0 0   &hbt 1 0   &hbt 2 0    &hbt 3 0 &to QWERTY
+      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR  &bt bts 0  &bt bts 1  &bt bts 2  &bt bts 3 &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans    &kp RET                &mkp LCLK    &trans    &mkp RCLK
