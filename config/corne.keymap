@@ -48,7 +48,6 @@
 //#define BTP3 "BT_SEL 3, &none"
 
 //Bluetooth Mod Taps
-$define 
 
 / {
     behaviors {
