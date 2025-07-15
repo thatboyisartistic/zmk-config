@@ -104,7 +104,7 @@
      &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK  &tog NAV
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │          │          │          │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 bt BT_SEL 3 &to  QWERTY
+      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &to  QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans    &kp RET                &mkp LCLK    &trans    &mkp RCLK
