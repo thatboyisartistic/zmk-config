@@ -25,7 +25,7 @@
 //Layer Defines
 #define QWERTY  0
 #define NAV     1
-#define SYMB  2
+#define SYMB    2
 #define SPECIAL 3
 #define MEDIA   4
 
@@ -47,7 +47,6 @@
 //#define BTP2 "BT_SEL 2, &none" 
 //#define BTP3 "BT_SEL 3, &none"
 
-//Bluetooth Mod Taps
 
 / {
     behaviors {
@@ -74,14 +73,17 @@
     };
 
 
+
+
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-// │   TAB     │   Q      │   W      │   E      │   R      │   T      │            │   Y      │   U      │   I      │   O      │   P      │  BSPC    │
-     &kp TAB      &kp Q     &kp W       &kp E      &kp R      &kp T                   &kp Y      &kp U      &kp I      &kp O     &kp P      &kp BSPC
+// │ TAB/ESC   │   Q      │   W      │   E      │   R      │   T      │            │   Y      │   U      │   I      │   O      │   P      │  BSPC    │
+    &mt ESC TAB  &kp Q     &kp W       &kp E      &kp R      &kp T                   &kp Y      &kp U      &kp I      &kp O     &kp P      &kp BSPC
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │   CTRL    │   A      │   S      │   D      │   F      │  G       │            │   H      │   J      │   K      │   L      │   ;      │   '      │
      &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &kp SEMI    &kp SQT
@@ -100,11 +102,11 @@
 // │           │          │          │          │          │          │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
       &trans      &none      &none      &none      &none      &none                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │  BCTRL    │   BT1    │   BT2    │   BT3    │   BT4    │  BT5     │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │ NAV HOLD │
-     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &mkp MCLK  &tog NAV
+// │           │          │          │          │          │          │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
+      &trans      &none      &none      &none      &none      &none                   &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │          │          │          │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &to  QWERTY
+      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR  &bt bts 0  &bt bts 1  &bt bts 2  &bt bts 3 &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
                                        &kp LGUI    &trans    &kp RET                &mkp LCLK    &trans    &mkp RCLK
@@ -115,13 +117,13 @@
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │           │   ` / ~  │   [      │   ]      │    |     │   = / +  │            │  TAB     │  7 / &   │  8 / *   │  9 / (   │          │          │
-     &trans     &kp GRAVE   &kp RBKT   &kp LBKT   &kp R     &kp EQUAL               &kp TAB     &kp N7     &kp N8     &kp N9      &none      &trans
+     &trans     &kp GRAVE   &kp RBKT   &kp LBKT   &kp R     &kp EQUAL                &kp TAB     &kp N7     &kp N8     &kp N9     &none      &trans
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │   (      │    )     │  \ / |   │  - / _   │            │  0 / )   │  4 / $   │  5 / %   │  6 / ^   │          │          │
-     &trans       &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                &kp N0     &kp N4     &kp N5     &kp N6      &none    &to QWERTY
+     &trans       &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp N0     &kp N4     &kp N5     &kp N6     &none    &to QWERTY
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │   {      │    }     │ "/" / ?  │          │            │     ,    │  1 / !   │  2 / @   │  3 / #   │          │          │
-     &trans       &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                 &kp COMMA    &kp N1     &none      &none      &none      &trans   
+     &trans       &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                 &kp COMMA    &kp N1     &kp N2     &kp N3     &none      &trans   
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                   │          │          │          │            │          │          │          │
                                        &trans      &trans     &trans                  &trans     &trans     &trans
