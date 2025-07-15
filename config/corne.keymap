@@ -85,8 +85,8 @@
 // │ TAB/ESC   │   Q      │   W      │   E      │   R      │   T      │            │   Y      │   U      │   I      │   O      │   P      │  BSPC    │
     &mt ESC TAB  &kp Q     &kp W       &kp E      &kp R      &kp T                   &kp Y      &kp U      &kp I      &kp O     &kp P      &kp BSPC
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │   CTRL    │   A      │   S      │   D      │   F      │  G       │            │   H      │   J      │   K      │   L      │   ;      │   '      │
-     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &kp SEMI    &kp SQT
+// │   CTRL    │   A      │   S      │   D      │   F      │  G       │            │   H      │   J      │   K      │   L      │   ;      │ ' / RCTL │
+     &kp LCTRL    &kp A      &kp S      &kp D      &kp F     &kp G                   &kp H       &kp J      &kp K      &kp L     &kp SEMI  &mt SQT RCTL
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │  SHFT     │  Z       │  X       │  C       │  V       │  B       │            │   N      │  M       │  ,       │  .       │  /       │ SHFT     │
      &kp LSHFT   &kp Z      &kp X      &kp C      &kp V      &kp B                    &kp N     &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
@@ -99,17 +99,17 @@
                 lower_layer {
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
-// │           │          │          │          │          │          │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-      &trans      &none      &none      &none      &none      &none                 &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
+// │           │   ` / ~  │   [      │   ]      │    |     │   = / +  │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
+      &trans    &kp GRAVE   &kp RBKT   &kp LBKT   &kp R     &kp EQUAL               &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │           │          │          │          │          │          │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
-      &trans      &none      &none      &none      &none      &none                   &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
+// │           │          │   (      │    )     │  \ / |   │  - / _   │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
+      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-// │           │          │          │          │          │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-      &trans      &none      &none      &none      &none      &none                 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &to QWERTY
+// │           │          │   {      │    }     │ "/" / ?  │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
+      &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &to QWERTY
 // └───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
-//                                   │  GUI     │          │  ENT     │            │ LFTCLK   │          │  RGTCLK  │
-                                       &kp LGUI    &trans    &kp RET                &mkp LCLK    &trans    &mkp RCLK
+//                                   │          │          │          │            │ LFTCLK   │          │  RGTCLK  │
+                                       &trans      &trans     &trans                &mkp LCLK    &trans    &mkp RCLK
 //                                   └──────────┴──────────┴──────────┘            └──────────┴──────────┴──────────┘
                         >;
                 };
