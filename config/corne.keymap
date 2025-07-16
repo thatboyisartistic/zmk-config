@@ -100,10 +100,10 @@
                         bindings = <
 // ┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐            ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 // │           │   ` / ~  │   [      │   ]      │    |     │   = / +  │            │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-      &trans    &kp GRAVE   &kp RBKT   &kp LBKT   &kp R     &kp EQUAL               &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
+      &trans    &kp GRAVE   &kp RBKT   &kp LBKT   &kp PIPE  &kp EQUAL               &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &none
 // ├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │   (      │    )     │  \ / |   │  - / _   │            │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
-      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp H       &kp J      &kp K      &kp L    &mkp MCLK   &none
+      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK   &none
 // ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 // │           │          │   {      │    }     │ "/" / ?  │          │            │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
       &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &to QWERTY
