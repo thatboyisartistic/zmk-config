@@ -140,7 +140,7 @@
      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK    &trans
 //├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 //│           │          │   {      │    }     │ "/" / ?  │          │             │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │          │
-     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &btc FLSH N0          _BT_HOLD_TO_ACTIVATE_              &trans
+     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &btc FSLH N0          _BT_HOLD_TO_ACTIVATE_              &trans
 //└───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                  │          │          │          │             │ LFTCLK   │          │  RGTCLK  │
                                       &trans      &trans     &trans                 &mkp LCLK    &trans    &mkp RCLK
