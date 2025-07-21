@@ -43,14 +43,22 @@
 
 //Bluetooth mod taps to prevent accidental profile changes or deletion
 #define _BT_HOLD_TO_ACTIVATE_ \
-	&bth BT_CLEAR 0 \
-	&bth BT_SEL 0 0 \
-	&bth BT_SEL 1 1 \
-	&bth BT_SEL 2 2 \
-	&bth BT_SEL 3 3
+	&bth  0 0 \
+	&bth  1 1 \
+	&bth  2 2 \
+	&bth  3 3
 
 
 / {
+    macros {
+        bt_sel_mac: bt_sel_mac {
+            compatible = "zmk,behavior-macro";
+            binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>
+		, <&macro_tap &bt BT_SEL MACRO_PLACEHOLDER>
+                ;
+        };
     behaviors {
         ltd0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -64,13 +72,21 @@
             tapping-term-ms = <200>;
             bindings = <&mo SYMB>, <&tog NUM>;
         };
-        bth: hold_to_press {
+        bth: hold_to_change_bt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
+            bindings = <&bt_sel_mac>, <&none>;
+            display-name = "hold-to-change-bt";
+        };
+        btc: hold_to_clear_bt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
             bindings = <&bt>, <&none>;
-            display-name = "hold-to-press";
+            display-name = "hold-to-clear-bt";
         };
     };
 
@@ -125,7 +141,7 @@
      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK    &trans
 //├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 //│           │          │   {      │    }     │ "/" / ?  │          │             │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │          │
-     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                             _BT_HOLD_TO_ACTIVATE_                         &trans
+     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &btc BT_CLR            _BT_HOLD_TO_ACTIVATE_              &trans
 //└───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                  │          │          │          │             │ LFTCLK   │          │  RGTCLK  │
                                       &trans      &trans     &trans                 &mkp LCLK    &trans    &mkp RCLK
