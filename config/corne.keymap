@@ -12,7 +12,6 @@
 //└ ┴ ┘
 
 /* TODO:
-* Add symbol keycodes
 *Add bluetooth profile Macro
 *Finish bluetooth profile implementation
 *General clean up
@@ -59,6 +58,9 @@
 		, <&macro_tap &bt BT_SEL MACRO_PLACEHOLDER>
                 ;
         };
+    };
+
+
     behaviors {
         ltd0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
