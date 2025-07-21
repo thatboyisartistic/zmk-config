@@ -83,7 +83,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&bt BT_CLR>, <&none>;
+            bindings = <&bt>, <&none>;
             display-name = "hold-to-clear-bt";
         };
     };
