@@ -79,7 +79,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&bt_sel_mac>, <&none>;
+            bindings = <&bt_sel_mac>, <&kp>;
             display-name = "hold-to-change-bt";
         };
         btc: hold_to_clear_bt {
@@ -87,7 +87,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&bt>, <&none>;
+            bindings = <&bt>, <&kp>;
             display-name = "hold-to-clear-bt";
         };
     };
