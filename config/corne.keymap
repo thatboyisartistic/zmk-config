@@ -41,11 +41,13 @@
 #define MVRGT MOVE_RIGHT
 
 
-//Bluetooth mod taps to prevent accidental profile changes
-#define BTS BT_SEL
-//#define BTP1 "BT_SEL 1, &none"
-//#define BTP2 "BT_SEL 2, &none" 
-//#define BTP3 "BT_SEL 3, &none"
+//Bluetooth mod taps to prevent accidental profile changes or deletion
+#define _BT_HOLD_TO_ACTIVE_ \
+	&bth BT_CLEAR 0 \
+	&bth BT_SEL 0 0 \
+	&bth BT_SEL 1 1 \
+	&bth BT_SEL 2 2 \
+	&bth BT_SEL 3 3
 
 
 / {
@@ -62,14 +64,14 @@
             tapping-term-ms = <200>;
             bindings = <&mo SYMB>, <&tog NUM>;
         };
-//      hbt: mod_tap {
-//          compatible = "zmk,behavior-hold-tap";
-//          #binding-cells = <1>;
-//          flavor = "hold-preferred";
-//          tapping-term-ms = <200>;
-//          bindings = <&bt BT_SEL>, <&none>;
-//          display-name = "hold-to-change";
-//      };
+        bth: hold_to_press {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bt>, <&none>;
+            display-name = "hold-to-press";
+        };
     };
 
 
@@ -117,13 +119,13 @@
                         bindings = <
 //┌───────────┬──────────┬──────────┬──────────┬──────────┬──────────┐             ┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
 //│           │   ` / ~  │   [      │   ]      │    |     │   = / +  │             │ MSMV_LFT │ MSMV_DWN │ MSMV_UP  │ MSMV_RGT │          │          │
-     &trans    &kp GRAVE   &kp RBKT   &kp LBKT   &kp PIPE  &kp EQUAL                &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none     &trans
+     &trans    &kp GRAVE   &kp RBKT   &kp LBKT   &kp PIPE  &kp EQUAL                &mmv MVLFT &mmv MVDWN &mmv MVUP  &mmv MVRGT   &none      &trans
 //├───────────┬──────────┼──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 //│           │          │   (      │    )     │  \ / |   │  - / _   │             │   LFT    │   DWN    │   UP     │   RGT    │  MDLCLK  │          │
-     &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK   &trans
+     &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK    &trans
 //├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│           │          │   {      │    }     │ "/" / ?  │          │             │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │ TO BASE  │
-     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &trans
+//│           │          │   {      │    }     │ "/" / ?  │          │             │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │          │
+     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                             _BT_HOLD_TO_ACTIVATE_                         &trans
 //└───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                  │          │          │          │             │ LFTCLK   │          │  RGTCLK  │
                                       &trans      &trans     &trans                 &mkp LCLK    &trans    &mkp RCLK
