@@ -41,24 +41,20 @@
 
 
 //Bluetooth mod taps to prevent accidental profile changes or deletion
-#define _BT_HOLD_TO_ACTIVATE_ \
-	&bth  0 0 \
-	&bth  1 1 \
-	&bth  2 2 \
-	&bth  3 3
+#define _BT_HOLD_TO_ACTIVATE_ &bth 0 0  &bth 1 1  &bth 2 2  &bt  3 3
 
 
 / {
-    macros {
-        bt_sel_mac: bt_sel_mac {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings
-                = <&macro_param_1to1>
-		, <&macro_tap &bt BT_SEL MACRO_PLACEHOLDER>
-                ;
-        };
-    };
+//    macros {
+//        bt_sel_mac: bt_sel_mac {
+//            compatible = "zmk,behavior-macro-one-param";
+//            #binding-cells = <1>;
+//            bindings
+//                = <&macro_param_1to1>
+//		, <&macro_tap &bt BT_SEL MACRO_PLACEHOLDER>
+//                ;
+//        };
+//    };
 
 
     behaviors {
