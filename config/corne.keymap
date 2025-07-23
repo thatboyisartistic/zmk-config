@@ -42,7 +42,7 @@
 
 //Bluetooth mod taps to prevent accidental profile changes or deletion
 //#define _BT_HOLD_TO_ACTIVATE_ &bth BT_SEL 0 N0  &bth BT_SEL 1 N1  &bth BT_SEL 2 N2  &bth BT_SEL 3 N3
-#define _BT_HOLD_TO_ACTIVATE_ &btc BT_SEL 0  &btc BT_SEL 1   &btc BT_SEL 2   &btc BT_SEL 3 
+#define _BT_HOLD_TO_ACTIVATE_ &bth BT_SEL 0  &bth BT_SEL 1   &bth BT_SEL 2   &bth BT_SEL 3 
 //#define _BT_HOLD_TO_ACTIVATE_ &none &none &none &none
 
 
@@ -76,17 +76,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <3000>;
             bindings = <&bt>, <&none>;
             display-name = "hold-to-change-bt";
-        };
-        btc: hold_to_clear_bt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&bt>, <&none>;
-            display-name = "hold-to-clear-bt";
         };
     };
 
