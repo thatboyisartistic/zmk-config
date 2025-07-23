@@ -42,7 +42,7 @@
 
 //Bluetooth mod taps to prevent accidental profile changes or deletion
 //#define _BT_HOLD_TO_ACTIVATE_ &bth BT_SEL 0 N0  &bth BT_SEL 1 N1  &bth BT_SEL 2 N2  &bth BT_SEL 3 N3
-#define _BT_HOLD_TO_ACTIVATE_ &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3 
+#define _BT_HOLD_TO_ACTIVATE_ &btc BT_SEL 0  &btc BT_SEL 1   &btc BT_SEL 2   &btc BT_SEL 3 
 //#define _BT_HOLD_TO_ACTIVATE_ &none &none &none &none
 
 
