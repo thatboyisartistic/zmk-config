@@ -40,10 +40,8 @@
 #define MVRGT MOVE_RIGHT
 
 
-//Bluetooth mod taps to prevent accidental profile changes or deletion
-//#define _BT_HOLD_TO_ACTIVATE_ &bth BT_SEL 0 N0  &bth BT_SEL 1 N1  &bth BT_SEL 2 N2  &bth BT_SEL 3 N3
+//Bluetooth keys
 #define _BT_HOLD_TO_ACTIVATE_ &bth BT_SEL 0  &bth BT_SEL 1   &bth BT_SEL 2   &bth BT_SEL 3 
-//#define _BT_HOLD_TO_ACTIVATE_ &none &none &none &none
 
 
 / {
@@ -133,7 +131,7 @@
      &trans      &none     &kp LPAR   &kp RPAR   &kp BSLH  &kp MINUS                 &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &mkp MCLK    &trans
 //├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 //│           │          │   {      │    }     │ "/" / ?  │          │             │ BT CLEAR │  BTP 0   │  BTP 1   │  BTP 2   │  BTP 3   │          │
-     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &btc BT_CLR           _BT_HOLD_TO_ACTIVATE_              &trans
+     &trans      &none     &kp LBRC   &kp RBRC   &kp FSLH    &none                  &bth BT_CLR           _BT_HOLD_TO_ACTIVATE_              &trans
 //└───────────┴──────────┴──────────┼──────────┼──────────┼──────────┤             ├──────────┼──────────┼──────────┼──────────┴──────────┴──────────┘
 //                                  │          │          │          │             │ LFTCLK   │          │  RGTCLK  │
                                       &trans      &trans     &trans                 &mkp LCLK    &trans    &mkp RCLK
